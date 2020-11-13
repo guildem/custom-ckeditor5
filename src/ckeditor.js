@@ -30,10 +30,13 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+// Added plugins by Guillaume Démurgé
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
+
+class Classic extends ClassicEditorBase {}
 
 // Plugins to include in the build.
-ClassicEditor.builtinPlugins = [
+Classic.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -56,11 +59,13 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+
+	SimpleUploadAdapter,
 ];
 
 // Editor configuration.
-ClassicEditor.defaultConfig = {
+Classic.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
@@ -100,3 +105,5 @@ ClassicEditor.defaultConfig = {
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
+
+export default { Classic };
