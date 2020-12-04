@@ -103,10 +103,10 @@ Classic.defaultConfig = {
 	language: 'en'
 };
 
-class Inline extends InlineEditorBase {}
+class Simple extends ClassicEditorBase {}
 
 // Plugins to include in the build.
-Inline.builtinPlugins = [
+Simple.builtinPlugins = [
 	Essentials,
 	Autoformat,
 	Bold,
@@ -119,7 +119,7 @@ Inline.builtinPlugins = [
 ];
 
 // Editor configuration.
-Inline.defaultConfig = {
+Simple.defaultConfig = {
 	toolbar: {
 		items: [
 			'bold',
@@ -133,4 +133,4 @@ Inline.defaultConfig = {
 	language: 'en'
 };
 
-export default { Classic, Inline };
+export default { Classic, Simple };
