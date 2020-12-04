@@ -5,6 +5,7 @@
 
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import InlineEditorBase from '@ckeditor/ckeditor5-editor-inline/src/inlineeditor';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 // import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
@@ -38,13 +39,10 @@ class Classic extends ClassicEditorBase {}
 // Plugins to include in the build.
 Classic.builtinPlugins = [
 	Essentials,
-	// UploadAdapter,
 	Autoformat,
 	Bold,
 	Italic,
 	BlockQuote,
-	// CKFinder,
-	// EasyImage,
 	Heading,
 	Image,
 	ImageCaption,
@@ -102,8 +100,37 @@ Classic.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
 
-export default { Classic };
+class Inline extends InlineEditorBase {}
+
+// Plugins to include in the build.
+Inline.builtinPlugins = [
+	Essentials,
+	Autoformat,
+	Bold,
+	Italic,
+	Link,
+	Paragraph,
+	TextTransformation,
+
+	SimpleUploadAdapter,
+];
+
+// Editor configuration.
+Inline.defaultConfig = {
+	toolbar: {
+		items: [
+			'bold',
+			'italic',
+			'link',
+			'|',
+			'undo',
+			'redo'
+		]
+	},
+	language: 'en'
+};
+
+export default { Classic, Inline };
